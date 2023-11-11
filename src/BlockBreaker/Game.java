@@ -155,7 +155,7 @@ public class Game extends JPanel{
 				public void run() {
 					missile=new Missile(spaceship,game);
 					missile.start();
-				}}, 0, 3000);
+				}}, 0, 4500);
 		}
 	}
 

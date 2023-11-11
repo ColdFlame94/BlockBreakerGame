@@ -94,7 +94,7 @@ public class Powerup extends Thread{
 					counter=16;
 					break;
 				case 5: //activates the slowdown powerup which makes the platform move slower
-					game.platformSpeed=2;
+					game.platformSpeed=3;
 					counter=11;
 					break;
 				}
