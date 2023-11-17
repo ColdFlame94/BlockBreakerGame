@@ -57,7 +57,7 @@ public class BlockBreakerMenu extends JPanel implements ActionListener{
 		}
 		else if(e.getSource()==help) //This button gives general info about the gameplay
 		{
-			JOptionPane.showMessageDialog(new JPanel(), "-Rotate the mouse to move the platform from side to side. Left-click on the mouse to launch the ball.\n"
+			JOptionPane.showMessageDialog(new JPanel(), "-Use the mouse to move the platform from side to side. Left-click on the mouse to launch the ball.\n"
 					+ "-If you finished a level without dying, you'll get an extra life.\n"
 					+ "-While playing, the game will offer different powerups which you can obtain. Some are good and some are bad and better be avoided. "
 					+ "Each powerup has a limited time.\n"
