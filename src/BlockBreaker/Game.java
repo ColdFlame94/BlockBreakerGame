@@ -112,7 +112,6 @@ public class Game extends JPanel{
 				ball.start();
 				initalNumOfLives=numOfLives;
 				startCreatingPowerups();
-				startCreatingSpaceshipAndMissiles();
 			}
 			else if(clickCounter>1 && !ball.isAlive()) //creates a new ball thread whether you die or level up
 			{
