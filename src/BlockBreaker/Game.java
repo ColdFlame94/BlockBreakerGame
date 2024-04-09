@@ -111,7 +111,8 @@ public class Game extends JPanel{
 			{
 				ball.start();
 				initalNumOfLives=numOfLives;
-				startCreatingPowerupsAndMissiles();	
+				startCreatingPowerups();
+				startCreatingSpaceshipAndMissiles();
 			}
 			else if(clickCounter>1 && !ball.isAlive()) //creates a new ball thread whether you die or level up
 			{
@@ -128,16 +129,15 @@ public class Game extends JPanel{
 				{
 					if(game.level==4)
 					{
-						spaceship=new Spaceship(game);
-						spaceship.start();
+						startCreatingSpaceshipAndMissiles();
 					}
-					startCreatingPowerupsAndMissiles();
+					startCreatingPowerups();
 				}
 			}
 		}
 	}
 	
-	public void startCreatingPowerupsAndMissiles() { //Starts generating a new powerup every 35 seconds
+	public void startCreatingPowerups() { //Starts generating a new powerup every 35 seconds
 		powerupGenerator=new Timer();
 		powerupGenerator.schedule(new TimerTask() {
 			@Override
@@ -146,17 +146,18 @@ public class Game extends JPanel{
 				powerup.start();
 				prevPowerupNum=powerup.powerupNum;
 			}}, 1000, 30000);
-		
-		if(ball.game.level==4)
-		{
-			missileTimer=new Timer();
-			missileTimer.schedule(new TimerTask() {
-				@Override
-				public void run() {
-					missile=new Missile(spaceship,game);
-					missile.start();
-				}}, 0, 4500);
-		}
+	}
+	
+	public void startCreatingSpaceshipAndMissiles() { //Creates and activates a spaceship that shoots missiles
+		spaceship=new Spaceship(game);
+		spaceship.start();
+		missileTimer=new Timer();
+		missileTimer.schedule(new TimerTask() {
+			@Override
+			public void run() {
+				missile=new Missile(spaceship,game);
+				missile.start();
+			}}, 0, 4500);
 	}
 
 	public void paintComponent(Graphics g) {
